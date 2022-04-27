@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.WaitUtil;
 
 /**
  * Created by vuongphan on 04/27/2022 - - 11:02
@@ -47,10 +48,12 @@ public class DashboardPage {
 
 
     public void clickOnCustomersMenu() {
+        WaitUtil.waitForElementVisible(lnkCustomers_menu);
         lnkCustomers_menu.click();
     }
 
     public void clickOnCustomersMenuItem() {
+
         lnkCustomers_menuitem.click();
     }
 }
