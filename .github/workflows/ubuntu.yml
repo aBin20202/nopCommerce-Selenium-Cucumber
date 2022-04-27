@@ -61,15 +61,21 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           publish_dir: allure-history
 
-      - name: Post the link to the report
-        if: always()
-        uses: Sibz/github-status-action@v1
+#      - name: Post the link to the report
+#        if: always()
+#        uses: Sibz/github-status-action@v1
+#        with:
+#          authToken: ${{secrets.GITHUB_TOKEN}}
+#          context: 'Test report'
+#          description: 'Passed'
+#          state: 'success'
+#          sha: ${{github.event.pull_request.head.sha || github.sha}}
+#          target_url: https://aBin20202.github.io/nopCommerce-Selenium-Cucumber/
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
-          authToken: ${{secrets.GITHUB_TOKEN}}
-          context: 'Test report'
-          description: 'Passed'
-          state: 'success'
-          sha: ${{github.event.pull_request.head.sha || github.sha}}
-          target_url: https://aBin20202.github.io/nopCommerce-Selenium-Cucumber/
+          branch: gh-pages # The branch the action should deploy to.
+          folder: allure-history # The folder the action should deploy.
 
 
