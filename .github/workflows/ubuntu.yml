@@ -31,7 +31,7 @@ jobs:
 
       - name: Build with Maven
         run: |
-          mvn -B package --file pom.xml test
+          mvn -B package --file pom.xml test allure:report
 
       - name: Deploy report page to GitHub Page
         uses: peaceiris/actions-gh-pages@v3
@@ -39,30 +39,29 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/cucumber-reports
 
-      #      - name: Cache local Maven repository
-      #        uses: actions/cache@v3
-      #        with:
-      #          path: ~/.m2/repository
-      #          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-      #          restore-keys: |
-      #            ${{ runner.os }}-maven-
-      #
-      #      - name: Install Google Chrome
-      #        run: |
-      #          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      #          sudo dpkg -i google-chrome-stable_current_amd64.deb
+      - name: Get Allure history
+        uses: actions/checkout@v3
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
 
-      #      - name: Download allure
-      #        run: |
-      #          wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.17.3/allure-commandline-2.17.3.zip
-      #          sudo unzip allure-commandline-2.17.3.zip -d /allure
-      #          export PATH="/allure/allure-2.17.3/bin:${PATH}" && export ALLURE_CONFIG="/allure-config/allure.properties"
-      #          rm allure-commandline-2.17.3.zip
+      - name: Allure Report action
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        #d: allure-report
+        with:
+          allure_results: allure-results
+          #gh_pages: gh-pages
+          #allure_report: allure-report
+          allure_history: allure-history
+          keep_reports: 20
 
+      - name: Deploy report to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
 
-
-#      - name: Upload artifact
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: allure-report
-#          path: target/allure-report
