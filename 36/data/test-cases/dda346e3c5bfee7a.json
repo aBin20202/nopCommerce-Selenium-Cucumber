@@ -1,0 +1,230 @@
+{
+  "uid" : "dda346e3c5bfee7a",
+  "name" : "Login Data Driven",
+  "fullName" : "Login Feature: Login Data Driven",
+  "historyId" : "e6f0e18705992df168b0dda6209802c3",
+  "time" : {
+    "start" : 1651061042594,
+    "stop" : 1651061047888,
+    "duration" : 5294
+  },
+  "description" : "  This feature deals with the login functionality of the application",
+  "descriptionHtml" : "<p>This feature deals with the login functionality of the application</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "appHooks.HookSteps.lauchDriver()",
+    "time" : {
+      "start" : 1651061042596,
+      "stop" : 1651061045394,
+      "duration" : 2798
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "  This feature deals with the login functionality of the application",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Given  user navigates to login page",
+      "time" : {
+        "start" : 1651061045401,
+        "stop" : 1651061045912,
+        "duration" : 511
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "And  user enters Email as \"admin@yourstore.com\" and Password as \"admin\"",
+      "time" : {
+        "start" : 1651061045913,
+        "stop" : 1651061046155,
+        "duration" : 242
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "And  click on Login button",
+      "time" : {
+        "start" : 1651061046156,
+        "stop" : 1651061047552,
+        "duration" : 1396
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Then  Page Title should be \"Dashboard / nopCommerce administration\"",
+      "time" : {
+        "start" : 1651061047553,
+        "stop" : 1651061047671,
+        "duration" : 118
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 4,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "appHooks.HookSteps.tearDown(io.cucumber.java.Scenario)",
+    "time" : {
+      "start" : 1651061047672,
+      "stop" : 1651061047753,
+      "duration" : 81
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "1be764843c9269dc",
+      "name" : "Login_Data_Driven-1651061047.png",
+      "source" : "1be764843c9269dc.png",
+      "type" : "image/png",
+      "size" : 46000
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  }, {
+    "name" : "appHooks.HookSteps.quitApplication()",
+    "time" : {
+      "start" : 1651061047754,
+      "stop" : 1651061047886,
+      "duration" : 132
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az80-802"
+  }, {
+    "name" : "thread",
+    "value" : "2104@fv-az80-802.main(1)"
+  }, {
+    "name" : "feature",
+    "value" : "Login Feature"
+  }, {
+    "name" : "story",
+    "value" : "Login Data Driven"
+  }, {
+    "name" : "suite",
+    "value" : "Login Feature"
+  }, {
+    "name" : "testClass",
+    "value" : "Login Data Driven"
+  }, {
+    "name" : "framework",
+    "value" : "cucumber4jvm"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "gherkin_uri",
+    "value" : "file:///home/runner/work/nopCommerce-Selenium-Cucumber/nopCommerce-Selenium-Cucumber/src/test/resources/features/Login.feature"
+  }, {
+    "name" : "package",
+    "value" : "src.test.resources.features.Login_feature.Login Feature"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "email",
+    "value" : "admin@yourstore.com"
+  }, {
+    "name" : "password",
+    "value" : "admin"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 4,
+        "unknown" : 0,
+        "total" : 4
+      },
+      "items" : [ {
+        "uid" : "4686a7791d569659",
+        "reportUrl" : "https://aBin20202.github.io/nopCommerce-Selenium-Cucumber/35//#testresult/4686a7791d569659",
+        "status" : "passed",
+        "time" : {
+          "start" : 1651059972752,
+          "stop" : 1651059979923,
+          "duration" : 7171
+        }
+      }, {
+        "uid" : "17a3774be1e2cbbb",
+        "reportUrl" : "https://aBin20202.github.io/nopCommerce-Selenium-Cucumber/34//#testresult/17a3774be1e2cbbb",
+        "status" : "passed",
+        "time" : {
+          "start" : 1651058594322,
+          "stop" : 1651058600072,
+          "duration" : 5750
+        }
+      }, {
+        "uid" : "2a9452436911f775",
+        "reportUrl" : "https://aBin20202.github.io/nopCommerce-Selenium-Cucumber/33//#testresult/2a9452436911f775",
+        "status" : "passed",
+        "time" : {
+          "start" : 1651058395541,
+          "stop" : 1651058402188,
+          "duration" : 6647
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "dda346e3c5bfee7a.json",
+  "parameterValues" : [ "admin@yourstore.com", "admin" ]
+}
