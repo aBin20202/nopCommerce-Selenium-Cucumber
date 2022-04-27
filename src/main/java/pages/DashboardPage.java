@@ -48,12 +48,12 @@ public class DashboardPage {
 
 
     public void clickOnCustomersMenu() {
-        WaitUtil.waitForElementVisible(lnkCustomers_menu);
+        WaitUtil.waitForElementClickable(lnkCustomers_menu);
         lnkCustomers_menu.click();
     }
 
     public void clickOnCustomersMenuItem() {
-
+        WaitUtil.waitForElementClickable(lnkCustomers_menuitem);
         lnkCustomers_menuitem.click();
     }
 }
