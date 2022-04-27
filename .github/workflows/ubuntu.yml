@@ -1,0 +1,68 @@
+# This is a basic workflow to help you get started with Actions
+name: Web Automation
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+      home:
+        description: 'Team'
+        required: false
+  # Triggers the workflow on push or pull request events but only for the develop branch
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java-version: [ 11.x ]
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Setup Java ${{matrix.java-version}}
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '${{matrix.java-version}}'
+          cache: 'maven'
+
+      - name: Cache local Maven repository
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Install dependency
+        run: |
+          sudo apt-get -yqq install chromium-chromedriver
+
+#      - name: Download allure
+#        run: |
+#          wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.17.3/allure-commandline-2.17.3.zip
+#          sudo unzip allure-commandline-2.17.3.zip -d /allure
+#          export PATH="/allure/allure-2.17.3/bin:${PATH}" && export ALLURE_CONFIG="/allure-config/allure.properties"
+#          rm allure-commandline-2.17.3.zip
+
+      - name: Start Tests
+        run: |
+          mvn clean test
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: target/allure-report
