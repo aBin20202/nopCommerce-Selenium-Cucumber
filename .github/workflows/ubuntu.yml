@@ -1,5 +1,5 @@
 # This is a basic workflow to help you get started with Actions
-name: Web Automation
+name: Web Automation on ubuntu
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -46,23 +46,24 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Install dependency
+      - name: Install Google Chrome
         run: |
-          sudo apt-get -yqq install chromium-chromedriver
+          chmod + x ./scripts/InstallChrome.sh
+                      ./scripts/InstallChrome.sh
 
-#      - name: Download allure
-#        run: |
-#          wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.17.3/allure-commandline-2.17.3.zip
-#          sudo unzip allure-commandline-2.17.3.zip -d /allure
-#          export PATH="/allure/allure-2.17.3/bin:${PATH}" && export ALLURE_CONFIG="/allure-config/allure.properties"
-#          rm allure-commandline-2.17.3.zip
+      #      - name: Download allure
+      #        run: |
+      #          wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.17.3/allure-commandline-2.17.3.zip
+      #          sudo unzip allure-commandline-2.17.3.zip -d /allure
+      #          export PATH="/allure/allure-2.17.3/bin:${PATH}" && export ALLURE_CONFIG="/allure-config/allure.properties"
+      #          rm allure-commandline-2.17.3.zip
 
-      - name: Start Tests
+      - name: Build with Maven
         run: |
-          mvn clean test
+          mvn -B package --file pom.xml test
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: allure-report
-          path: target/allure-report
+#      - name: Upload artifact
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: allure-report
+#          path: target/allure-report
