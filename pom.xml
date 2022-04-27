@@ -106,9 +106,9 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
-                    <!--                <suiteXmlFiles>-->
-                    <!--                    <suiteXmlFile>src/test/testng.xml</suiteXmlFile>-->
-                    <!--                </suiteXmlFiles>-->
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                         <allure.link.issue.pattern>https://example.org/browse/{}</allure.link.issue.pattern>

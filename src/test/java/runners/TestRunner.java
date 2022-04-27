@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
  * @project nopCommerce-Selenium-Cucumber
  */
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/Login.feature",
         glue = {"stepDefinitions", "appHooks"},
         plugin = {
                 "pretty", "html:target/cucumber-reports/cucumber.html",
