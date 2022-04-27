@@ -36,6 +36,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '${{matrix.java-version}}'
+          cache: 'maven'
 
       - name: Cache local Maven repository
         uses: actions/cache@v3
@@ -45,13 +46,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Install dependency
-        run: |
-          brew install allure 
+#      - name: Download allure
+#        run: |
+#          wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.17.3/allure-commandline-2.17.3.zip
+#          sudo unzip allure-commandline-2.17.3.zip -d /allure
+#          export PATH="/allure/allure-2.17.3/bin:${PATH}" && export ALLURE_CONFIG="/allure-config/allure.properties"
+#          rm allure-commandline-2.17.3.zip
 
       - name: Start Tests
         run: |
-          mvn clean test allure:report
+          mvn clean test
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
