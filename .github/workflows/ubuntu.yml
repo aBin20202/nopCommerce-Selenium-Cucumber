@@ -65,7 +65,8 @@ jobs:
         with:
           authToken: ${{secrets.GITHUB_TOKEN}}
           context: 'Test report'
+          description: 'Passed'
           state: 'success'
-          sha: ${{ github.event.pull_request.head.sha }}
+          sha: ${{github.event.pull_request.head.sha || github.sha}}
 
 
