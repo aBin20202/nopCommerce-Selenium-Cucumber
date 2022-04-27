@@ -1,0 +1,26 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "children" : [ {
+    "name" : "Login Feature",
+    "children" : [ {
+      "name" : "Login Data Driven",
+      "children" : [ {
+        "name" : "Login Data Driven",
+        "uid" : "e06606beb3ecedd5",
+        "parentUid" : "04dd9e45caaf37c32fc4fd39ffb86462",
+        "status" : "passed",
+        "time" : {
+          "start" : 1651067853596,
+          "stop" : 1651067871612,
+          "duration" : 18016
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "admin@yourstore.com", "admin" ]
+      } ],
+      "uid" : "04dd9e45caaf37c32fc4fd39ffb86462"
+    } ],
+    "uid" : "07ccdc9b95bf3f4817e5955bf1854cdd"
+  } ],
+  "name" : "behaviors"
+}
