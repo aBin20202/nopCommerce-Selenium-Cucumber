@@ -1,0 +1,192 @@
+{
+  "uid" : "515dcdff174643c8",
+  "name" : "Login Data Driven",
+  "fullName" : "Login Feature: Login Data Driven",
+  "historyId" : "e6f0e18705992df168b0dda6209802c3",
+  "time" : {
+    "start" : 1651055460676,
+    "stop" : 1651055465934,
+    "duration" : 5258
+  },
+  "description" : "  This feature deals with the login functionality of the application",
+  "descriptionHtml" : "<p>This feature deals with the login functionality of the application</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "appHooks.HookSteps.lauchDriver()",
+    "time" : {
+      "start" : 1651055460679,
+      "stop" : 1651055463283,
+      "duration" : 2604
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "  This feature deals with the login functionality of the application",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Given  user navigates to login page",
+      "time" : {
+        "start" : 1651055463291,
+        "stop" : 1651055463773,
+        "duration" : 482
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "And  user enters Email as \"admin@yourstore.com\" and Password as \"admin\"",
+      "time" : {
+        "start" : 1651055463773,
+        "stop" : 1651055464023,
+        "duration" : 250
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "And  click on Login button",
+      "time" : {
+        "start" : 1651055464024,
+        "stop" : 1651055465553,
+        "duration" : 1529
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Then  Page Title should be \"Dashboard / nopCommerce administration\"",
+      "time" : {
+        "start" : 1651055465554,
+        "stop" : 1651055465693,
+        "duration" : 139
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 4,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "appHooks.HookSteps.tearDown(io.cucumber.java.Scenario)",
+    "time" : {
+      "start" : 1651055465694,
+      "stop" : 1651055465814,
+      "duration" : 120
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "cf5a9b45eca08c0e",
+      "name" : "Login_Data_Driven-1651055465.png",
+      "source" : "cf5a9b45eca08c0e.png",
+      "type" : "image/png",
+      "size" : 45598
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  }, {
+    "name" : "appHooks.HookSteps.quitApplication()",
+    "time" : {
+      "start" : 1651055465814,
+      "stop" : 1651055465932,
+      "duration" : 118
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az80-802"
+  }, {
+    "name" : "thread",
+    "value" : "2106@fv-az80-802.main(1)"
+  }, {
+    "name" : "feature",
+    "value" : "Login Feature"
+  }, {
+    "name" : "story",
+    "value" : "Login Data Driven"
+  }, {
+    "name" : "suite",
+    "value" : "Login Feature"
+  }, {
+    "name" : "testClass",
+    "value" : "Login Data Driven"
+  }, {
+    "name" : "framework",
+    "value" : "cucumber4jvm"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "gherkin_uri",
+    "value" : "file:///home/runner/work/nopCommerce-Selenium-Cucumber/nopCommerce-Selenium-Cucumber/src/test/resources/features/Login.feature"
+  }, {
+    "name" : "package",
+    "value" : "src.test.resources.features.Login_feature.Login Feature"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "email",
+    "value" : "admin@yourstore.com"
+  }, {
+    "name" : "password",
+    "value" : "admin"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "515dcdff174643c8.json",
+  "parameterValues" : [ "admin@yourstore.com", "admin" ]
+}
