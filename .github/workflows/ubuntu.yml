@@ -37,7 +37,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.G_ACCESS_TOKEN }}
-          publish_dir: ./target/allure-report
+          publish_dir: ./target/
 
 #        - name: Get Allure history
 #        uses: actions/checkout@v3
