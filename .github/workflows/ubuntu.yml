@@ -52,17 +52,18 @@ jobs:
         if: always()
         id: allure-report
         with:
-          allure_results: ./target/allure-results
+          allure_results: allure-results
           gh_pages: gh-pages
-          allure_report: ./target/allure-report
+          allure_report: allure-report
           allure_history: allure-history
           keep_reports: 20
 
       - name: Deploy report to Github Pages
+        if: always()
         uses: peaceiris/actions-gh-pages@v3
         env:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./target
+          PUBLISH_DIR: allure-history
           allow_empty_commit: true
 
