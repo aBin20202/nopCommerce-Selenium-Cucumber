@@ -31,16 +31,8 @@ jobs:
 
       - name: Build with Maven
         run: |
-          mvn package
-#          mvn -B package --file pom.xml test allure:report
+          mvn -B package --file pom.xml test
         continue-on-error: true
-
-#      - name: Send Results and Generate Allure Report
-#        uses: Xotabu4/send-to-allure-server-action@1
-#        # always() needed because we want report for failed tests as well
-#        if: ${{ always() }}
-#        with:
-#          allure-server-url: 'http://my-allure-server.com:5001/'
 
       - name: Get Allure history
         uses: actions/checkout@v3
@@ -69,15 +61,15 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           publish_dir: allure-history
 
-#      - name: Post the link to the report
-#        if: always()
-#        uses: Sibz/github-status-action@v1
-#        with:
-#          authToken: ${{secrets.GITHUB_TOKEN}}
-#          context: 'Test report'
-#          description: 'Passed'
-#          state: 'success'
-#          sha: ${{github.event.pull_request.head.sha || github.sha}}
-#          target_url: https://github.com/aBin20202/nopCommerce-Selenium-Cucumber
+      - name: Post the link to the report
+        if: always()
+        uses: Sibz/github-status-action@v1
+        with:
+          authToken: ${{secrets.GITHUB_TOKEN}}
+          context: 'Test report'
+          description: 'Passed'
+          state: 'success'
+          sha: ${{github.event.pull_request.head.sha || github.sha}}
+          target_url: https://aBin20202.github.io/nopCommerce-Selenium-Cucumber/
 
 
