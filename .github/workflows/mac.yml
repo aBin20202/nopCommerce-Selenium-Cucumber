@@ -44,8 +44,9 @@ jobs:
 
       - name: Action on Allure report
         run: |
-          mkdir allure-history
-          cp -R target/allure-report/  allure-history
+          sh .github/workflows/entrypoint.sh
+#          mkdir allure-history
+#          cp -R target/allure-report/  allure-history
 
 
 
@@ -66,22 +67,22 @@ jobs:
           branch: gh-pages # The branch the action should deploy to.
           folder: allure-history # The folder the action should deploy.
 
-#      - name: Deploy report page to Github Pages
-#        if: always()
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN }}
-#          PUBLISH_BRANCH: gh-pages
-#          publish_dir: allure-history
-#          enable_jekyll: true
-
-      - name: Post the link to the report
+      - name: Deploy report page to Github Pages
         if: always()
-        uses: Sibz/github-status-action@v1
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          authToken: ${{secrets.GITHUB_TOKEN}}
-          context: 'Test report'
-          description: 'Passed'
-          state: 'success'
-          sha: ${{github.event.pull_request.head.sha || github.sha}}
-          target_url: https://abin20202.github.io/nopCommerce-Selenium-Cucumber/
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          publish_dir: allure-history
+          enable_jekyll: true
+
+#      - name: Post the link to the report
+#        if: always()
+#        uses: Sibz/github-status-action@v1
+#        with:
+#          authToken: ${{secrets.GITHUB_TOKEN}}
+#          context: 'Test report'
+#          description: 'Passed'
+#          state: 'success'
+#          sha: ${{github.event.pull_request.head.sha || github.sha}}
+#          target_url: https://abin20202.github.io/nopCommerce-Selenium-Cucumber/
