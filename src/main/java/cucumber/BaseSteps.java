@@ -43,6 +43,9 @@ public class BaseSteps {
         return (generatedString);
     }
 
+    public String getPageTitle() {
+        return driver.getTitle();
+    }
 
 
 }

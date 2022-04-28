@@ -1,10 +1,8 @@
 package stepDefinitions;
 
 import cucumber.BaseSteps;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.assertj.core.api.Assertions;
 
 /**
@@ -14,6 +12,30 @@ import org.assertj.core.api.Assertions;
  */
 public class DashboardSteps extends BaseSteps {
 
+    private static String email = prop.getProperty("username");
+    private static String password = prop.getProperty("password");
+
+    @Given("user is on {string} page")
+    public void userIsOnDashboardPage(String pageName) {
+        navigateToLogin();
+        if (email == null) {
+            email = "admin@gmail.com";
+        }
+        if (password == null) {
+            password = "Admin";
+        }
+        dashboardPage = loginPage.doLogin(email, password);
+        Assertions.assertThat(dashboardPage.getTitleHeader()).isEqualToIgnoringCase(pageName);
+    }
+
+
+    @Given("user is on Customer list page")
+    public void userIsOnCustomerListPage() {
+        customerPage = dashboardPage.selectMenu("Customers", "Customers");
+
+    }
+
+
     @Then("Page Title should be {string}")
     public void pageTitleShouldBe(String expectedTitle) {
         if (driver.getPageSource().contains("Login was unsuccessful.")) {
@@ -21,21 +43,6 @@ public class DashboardSteps extends BaseSteps {
             Assertions.assertThat(false).isEqualTo(true);
         }
         Assertions.assertThat(driver.getTitle()).isEqualToIgnoringCase(expectedTitle);
-    }
-
-    @Given("user is on Dashboard page")
-    public void userIsOnDashboardPage() {
-        Assertions.assertThat(dashboardPage.getTitleHeader()).isEqualToIgnoringCase("Dashboard");
-    }
-
-    @When("user clicks on Customers Menu")
-    public void userClicksOnCustomersMenu() {
-        dashboardPage.clickOnCustomersMenu();
-    }
-
-    @And("click on Customers Menu Item")
-    public void clickOnCustomersMenuItem() {
-        dashboardPage.clickOnCustomersMenuItem();
     }
 
 

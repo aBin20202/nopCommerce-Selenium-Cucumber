@@ -26,9 +26,9 @@ public class CustomerPage {
     @CacheLookup
     private WebElement btnAddNew;
 
-    @FindBy(partialLinkText = "Add a new customer")
+    @FindBy(xpath = "//h1[contains(text(),'Add a new customer')]")
     @CacheLookup
-    private WebElement lblPage;
+    private WebElement pageTitle;
 
     @FindBy(partialLinkText = "back to")
     @CacheLookup
@@ -98,12 +98,8 @@ public class CustomerPage {
     @CacheLookup
     private WebElement msgConfirmation;
 
-
-    //TODO: Action
-    public CustomerPage getPageTitle() {
-        driver.getTitle();
-        return this;
-
+    public String getPageTitle() {
+        return pageTitle.getText();
     }
 
     public void clickOnAddNew() {
@@ -143,12 +139,10 @@ public class CustomerPage {
         return this;
     }
 
-
     public CustomerPage setDOB(String dob) {
         txtDOB.sendKeys(dob);
         return this;
     }
-
 
     public CustomerPage setCompanyName(String comname) {
         txtCompanyName.sendKeys(comname);
@@ -164,7 +158,6 @@ public class CustomerPage {
         return this;
     }
 
-
     public CustomerPage selectNewsletter(String value) {
         return this;
     }
@@ -179,7 +172,6 @@ public class CustomerPage {
         return this;
     }
 
-
     public CustomerPage selectActive(boolean flag) {
         if (!flag && chkActive.isSelected()) {
             chkActive.click();
@@ -188,7 +180,6 @@ public class CustomerPage {
         }
         return this;
     }
-
 
     public CustomerPage setAdminContent(String content) {
         txtAdminContent.sendKeys(content);

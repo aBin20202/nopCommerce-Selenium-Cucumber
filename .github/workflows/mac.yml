@@ -1,4 +1,4 @@
-name: Web Automation - Ubuntu Machine
+name: Web Automation - MacOS Machine
 
 on:
   workflow_dispatch:
@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         java-version: [ 11.x ]

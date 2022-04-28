@@ -1,6 +1,7 @@
 package factory;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -34,9 +35,9 @@ public class DriverFactory {
         switch (browser) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--headless");
-                driver = new ChromeDriver(chromeOptions);
+                ChromeOptions options = DriverOptions.getChromeOptions();
+                driver = new ChromeDriver(Boolean.getBoolean("isJenkinsEnv") ?
+                        options.setBinary("/usr/bin/google-chrome") : options);
                 break;
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
@@ -47,10 +48,11 @@ public class DriverFactory {
             default:
                 throw new RuntimeException("Unsupported browser name: " + browser);
         }
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().setSize(new Dimension(1300, 760));
         driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
+        driver.manage().timeouts()
+                .pageLoadTimeout(Duration.ofSeconds(Integer.parseInt(prop.getProperty("pageLoadTimeout"))))
+                .implicitlyWait(Duration.ofSeconds(Integer.parseInt(prop.getProperty("timeoutInSecond"))));
         System.out.println("------------- Started the " + browser + " browser -------------");
         return driver;
     }
