@@ -2,18 +2,18 @@
   "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
   "name" : "timeline",
   "children" : [ {
-    "name" : "Mac-1651123748765.local",
+    "name" : "Mac-1651071792878.local",
     "children" : [ {
-      "name" : "4483@Mac-1651123748765.local.main(1)",
+      "name" : "10302@Mac-1651071792878.local.main(1)",
       "children" : [ {
         "name" : "Login Data Driven",
-        "uid" : "bbe7abb997d485f8",
-        "parentUid" : "d56df2741cd1254a4356776c42c2e213",
+        "uid" : "515fe2845b2d9270",
+        "parentUid" : "519cf6fbcdc61d25c13264b329011f9d",
         "status" : "passed",
         "time" : {
-          "start" : 1651151974367,
-          "stop" : 1651151987505,
-          "duration" : 13138
+          "start" : 1651152199956,
+          "stop" : 1651152211729,
+          "duration" : 11773
         },
         "flaky" : false,
         "newFailed" : false,
@@ -23,8 +23,8 @@
         "retriesStatusChange" : false,
         "parameters" : [ "admin@yourstore.com", "admin" ]
       } ],
-      "uid" : "d56df2741cd1254a4356776c42c2e213"
+      "uid" : "519cf6fbcdc61d25c13264b329011f9d"
     } ],
-    "uid" : "52d5ffd37feec2cf4d30f7524e898ac5"
+    "uid" : "9af612785860f6f19cab6adfa41b8a5a"
   } ]
 }
