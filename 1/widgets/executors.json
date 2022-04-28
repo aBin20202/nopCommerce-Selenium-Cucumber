@@ -1,0 +1,10 @@
+[ {
+  "name" : "GitHub Actions",
+  "type" : "github",
+  "url" : "https://aBin20202.github.io/nopCommerce-Selenium-Cucumber",
+  "buildOrder" : 1,
+  "buildName" : "GitHub Actions Run #2239161795",
+  "buildUrl" : "https://github.com/aBin20202/nopCommerce-Selenium-Cucumber/actions/runs/2239161795",
+  "reportName" : "Allure Report with history",
+  "reportUrl" : "https://aBin20202.github.io/nopCommerce-Selenium-Cucumber/1/"
+} ]
