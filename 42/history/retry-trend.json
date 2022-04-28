@@ -1,0 +1,9 @@
+[ {
+  "buildOrder" : 42,
+  "reportUrl" : "https://aBin20202.github.io/nopCommerce-Selenium-Cucumber/42/",
+  "reportName" : "Allure Report with history",
+  "data" : {
+    "run" : 1,
+    "retry" : 0
+  }
+} ]
