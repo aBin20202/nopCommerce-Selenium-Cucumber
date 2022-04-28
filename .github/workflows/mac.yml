@@ -45,7 +45,7 @@ jobs:
       - name: Action on Allure report
         run: |
           mkdir allure-history
-          cp -R target/allure-report  allure-history
+          cp -R target/allure-report/  allure-history
 
 
 
