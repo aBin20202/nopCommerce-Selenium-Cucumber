@@ -1,12 +1,12 @@
 {
-  "uid" : "760b5aa3e71136b4",
+  "uid" : "c99b1cf7d56a7d2a",
   "name" : "Login Data Driven",
   "fullName" : "Login Feature: Login Data Driven",
   "historyId" : "e6f0e18705992df168b0dda6209802c3",
   "time" : {
-    "start" : 1651152669766,
-    "stop" : 1651152681002,
-    "duration" : 11236
+    "start" : 1651152901038,
+    "stop" : 1651152913231,
+    "duration" : 12193
   },
   "description" : "  This feature deals with the login functionality of the application",
   "descriptionHtml" : "<p>This feature deals with the login functionality of the application</p>\n",
@@ -20,9 +20,9 @@
   "beforeStages" : [ {
     "name" : "appHooks.HookSteps.lauchDriver()",
     "time" : {
-      "start" : 1651152669769,
-      "stop" : 1651152676319,
-      "duration" : 6550
+      "start" : 1651152901042,
+      "stop" : 1651152908133,
+      "duration" : 7091
     },
     "status" : "passed",
     "steps" : [ ],
@@ -39,9 +39,9 @@
     "steps" : [ {
       "name" : "Given  user navigates to login page",
       "time" : {
-        "start" : 1651152676325,
-        "stop" : 1651152676873,
-        "duration" : 548
+        "start" : 1651152908139,
+        "stop" : 1651152909029,
+        "duration" : 890
       },
       "status" : "passed",
       "steps" : [ ],
@@ -54,9 +54,9 @@
     }, {
       "name" : "And  user enters Email as \"admin@yourstore.com\" and Password as \"admin\"",
       "time" : {
-        "start" : 1651152676874,
-        "stop" : 1651152677776,
-        "duration" : 902
+        "start" : 1651152909030,
+        "stop" : 1651152909732,
+        "duration" : 702
       },
       "status" : "passed",
       "steps" : [ ],
@@ -69,9 +69,9 @@
     }, {
       "name" : "And  click on Login button",
       "time" : {
-        "start" : 1651152677777,
-        "stop" : 1651152680265,
-        "duration" : 2488
+        "start" : 1651152909733,
+        "stop" : 1651152912488,
+        "duration" : 2755
       },
       "status" : "passed",
       "steps" : [ ],
@@ -84,9 +84,9 @@
     }, {
       "name" : "Then  Page Title should be \"Dashboard / nopCommerce administration\"",
       "time" : {
-        "start" : 1651152680266,
-        "stop" : 1651152680413,
-        "duration" : 147
+        "start" : 1651152912488,
+        "stop" : 1651152912644,
+        "duration" : 156
       },
       "status" : "passed",
       "steps" : [ ],
@@ -107,16 +107,16 @@
   "afterStages" : [ {
     "name" : "appHooks.HookSteps.tearDown(io.cucumber.java.Scenario)",
     "time" : {
-      "start" : 1651152680414,
-      "stop" : 1651152680646,
-      "duration" : 232
+      "start" : 1651152912645,
+      "stop" : 1651152912839,
+      "duration" : 194
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "fc5912648baf37e7",
-      "name" : "Login_Data_Driven-1651152680.png",
-      "source" : "fc5912648baf37e7.png",
+      "uid" : "42761eb70b84a9e7",
+      "name" : "Login_Data_Driven-1651152912.png",
+      "source" : "42761eb70b84a9e7.png",
       "type" : "image/png",
       "size" : 110070
     } ],
@@ -128,9 +128,9 @@
   }, {
     "name" : "appHooks.HookSteps.quitApplication()",
     "time" : {
-      "start" : 1651152680646,
-      "stop" : 1651152681000,
-      "duration" : 354
+      "start" : 1651152912839,
+      "stop" : 1651152913229,
+      "duration" : 390
     },
     "status" : "passed",
     "steps" : [ ],
@@ -143,10 +143,10 @@
   } ],
   "labels" : [ {
     "name" : "host",
-    "value" : "Mac-1651122002899.local"
+    "value" : "Mac-1651124882309.local"
   }, {
     "name" : "thread",
-    "value" : "5551@Mac-1651122002899.local.main(1)"
+    "value" : "4514@Mac-1651124882309.local.main(1)"
   }, {
     "name" : "feature",
     "value" : "Login Feature"
@@ -191,6 +191,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "760b5aa3e71136b4.json",
+  "source" : "c99b1cf7d56a7d2a.json",
   "parameterValues" : [ "admin@yourstore.com", "admin" ]
 }

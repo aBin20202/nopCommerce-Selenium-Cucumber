@@ -7,13 +7,13 @@
       "name" : "Login Data Driven",
       "children" : [ {
         "name" : "Login Data Driven",
-        "uid" : "760b5aa3e71136b4",
+        "uid" : "c99b1cf7d56a7d2a",
         "parentUid" : "04dd9e45caaf37c32fc4fd39ffb86462",
         "status" : "passed",
         "time" : {
-          "start" : 1651152669766,
-          "stop" : 1651152681002,
-          "duration" : 11236
+          "start" : 1651152901038,
+          "stop" : 1651152913231,
+          "duration" : 12193
         },
         "flaky" : false,
         "newFailed" : false,
