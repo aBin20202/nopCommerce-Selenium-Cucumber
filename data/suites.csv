@@ -1,2 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Thu Apr 28 13:35:01 UTC 2022","Thu Apr 28 13:35:13 UTC 2022","12193","","Login Feature","","Login Data Driven","","Login Data Driven","  This feature deals with the login functionality of the application"
+"passed","Thu Apr 28 13:39:08 UTC 2022","Thu Apr 28 13:39:20 UTC 2022","11863","","Login Feature","","Login Data Driven","","Login Data Driven","  This feature deals with the login functionality of the application"
