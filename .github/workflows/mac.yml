@@ -45,7 +45,7 @@ jobs:
       - name: Action on Allure report
         run: |
           mkdir allure-history
-          cp -R target/allure-report  allure-history
+          cp -R target/allure-report/  allure-history
 
 
 
@@ -73,7 +73,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           publish_dir: allure-history
-#          enable_jekyll: true
+          enable_jekyll: true
 
 #      - name: Post the link to the report
 #        if: always()
