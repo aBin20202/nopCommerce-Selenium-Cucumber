@@ -1,0 +1,30 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "Mac-1651151056934.local",
+    "children" : [ {
+      "name" : "1896@Mac-1651151056934.local.main(1)",
+      "children" : [ {
+        "name" : "Login Data Driven",
+        "uid" : "30b36ea4a1cb8cd5",
+        "parentUid" : "33e991b7304f9bc2db54dc65cc8b4808",
+        "status" : "passed",
+        "time" : {
+          "start" : 1651151767357,
+          "stop" : 1651151782824,
+          "duration" : 15467
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 0,
+        "retriesStatusChange" : false,
+        "parameters" : [ "admin@yourstore.com", "admin" ]
+      } ],
+      "uid" : "33e991b7304f9bc2db54dc65cc8b4808"
+    } ],
+    "uid" : "f058b7f2b12d84f00559cfa499cb6041"
+  } ]
+}
