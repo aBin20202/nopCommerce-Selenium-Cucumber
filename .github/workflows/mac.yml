@@ -42,21 +42,8 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-          #      - name: Action on Allure report
-          #        run: |
-          #          mkdir allure-history
-          #          cp -R target/allure-report  allure-history
 
 
-      - name: Test local action
-        uses: ./allure-report-action
-        if: always()
-        id: allure-report
-        with:
-          allure_results: build/allure-results
-          gh_pages: gh-pages
-          allure_report: allure-report
-          allure_history: allure-history
 
       #      -name:  Allure Report action
       #        uses: simple-elf/allure-report-action@master
@@ -69,11 +56,11 @@ jobs:
       #          allure_history: allure-history
       #          keep_reports: 20
 
-      #      - name: Deploy 🚀
-      #        uses: JamesIves/github-pages-deploy-action@v4.3.3
-      #        with:
-      #          branch: gh-pages # The branch the action should deploy to.
-      #          folder: allure-history # The folder the action should deploy.
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: allure-report # The folder the action should deploy.
 
       - name: Deploy report page to Github Pages
         if: always()
@@ -81,7 +68,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          publish_dir: allure-history
+          publish_dir: allure-report
           enable_jekyll: true
 
 #      - name: Post the link to the report
