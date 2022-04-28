@@ -2,13 +2,6 @@ name: Web Automation - Ubuntu Machine
 
 on:
   workflow_dispatch:
-    inputs:
-      name:
-        description: 'Person to greet'
-        required: true
-      home:
-        description: 'Team'
-        required: false
   push:
     branches: [ develop ]
   pull_request:
