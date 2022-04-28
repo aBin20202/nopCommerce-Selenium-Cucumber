@@ -64,7 +64,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: target/allure-report # The folder the action should deploy.
+          folder: allure-history # The folder the action should deploy.
 
       - name: Deploy report page to Github Pages
         if: always()
@@ -72,8 +72,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          publish_dir: allure-report
-          enable_jekyll: true
+          publish_dir: allure-history
+#          enable_jekyll: true
 
 #      - name: Post the link to the report
 #        if: always()
