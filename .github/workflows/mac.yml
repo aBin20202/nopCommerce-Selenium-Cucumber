@@ -34,47 +34,54 @@ jobs:
           mvn -B package --file pom.xml test allure:report
         continue-on-error: true
 
-      - name: Get Allure history
-        uses: actions/checkout@v3
-        if: always()
-        continue-on-error: true
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
         with:
-          ref: gh-pages
-          path: gh-pages
+          name: test-report
+          path: |
+            test-output
 
-      - name: Action on Allure report
-        run: |
-          sh .github/workflows/entrypoint.sh
-#          mkdir allure-history
-#          cp -R target/allure-report/  allure-history
-
-
-
-      #      -name:  Allure Report action
-      #        uses: simple-elf/allure-report-action@master
-      #        if: always()
-      #        id: allure-report
-      #        with:
-      #          allure_results: target/allure-results
-      #          gh_pages: gh-pages
-      #          allure_report: allure-report
-      #          allure_history: allure-history
-      #          keep_reports: 20
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: allure-history # The folder the action should deploy.
-
-      - name: Deploy report page to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          publish_dir: allure-history
-          enable_jekyll: true
+#      - name: Get Allure history
+#        uses: actions/checkout@v3
+#        if: always()
+#        continue-on-error: true
+#        with:
+#          ref: gh-pages
+#          path: gh-pages
+#
+#      - name: Action on Allure report
+#        run: |
+#          sh .github/workflows/entrypoint.sh
+##          mkdir allure-history
+##          cp -R target/allure-report/  allure-history
+#
+#
+#
+#      #      -name:  Allure Report action
+#      #        uses: simple-elf/allure-report-action@master
+#      #        if: always()
+#      #        id: allure-report
+#      #        with:
+#      #          allure_results: target/allure-results
+#      #          gh_pages: gh-pages
+#      #          allure_report: allure-report
+#      #          allure_history: allure-history
+#      #          keep_reports: 20
+#
+#      - name: Deploy 🚀
+#        uses: JamesIves/github-pages-deploy-action@v4.3.3
+#        with:
+#          branch: gh-pages # The branch the action should deploy to.
+#          folder: allure-history # The folder the action should deploy.
+#
+#      - name: Deploy report page to Github Pages
+#        if: always()
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          PUBLISH_BRANCH: gh-pages
+#          publish_dir: allure-history
+#          enable_jekyll: true
 
 #      - name: Post the link to the report
 #        if: always()
