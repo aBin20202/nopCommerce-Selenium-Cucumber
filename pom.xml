@@ -13,6 +13,7 @@
         <maven.compiler.target>11</maven.compiler.target>
 
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <maven-failsafe-plugin.version>3.0.0-M6</maven-failsafe-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M6</maven-surefire-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -23,8 +24,11 @@
         <testng.version>7.5</testng.version>
         <assertj.version>3.22.0</assertj.version>
 
+        <maven-cucumber-reporting.version>5.7.0</maven-cucumber-reporting.version>
+        <extentreports-cucumber-adapter.version>1.4.1</extentreports-cucumber-adapter.version>
+
         <aspectj.version>1.9.9</aspectj.version>
-        <allure-cucumber7-jvm.version>2.17.3</allure-cucumber7-jvm.version>
+        <allure-cucumber-jvm.version>2.17.3</allure-cucumber-jvm.version>
         <allure-maven.version>2.11.2</allure-maven.version>
 
         <allure.cmd.download.url>
@@ -82,12 +86,21 @@
             <scope>test</scope>
         </dependency>
 
+        <!--        Extent Report -->
+        <!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter -->
+        <dependency>
+            <groupId>tech.grasshopper</groupId>
+            <artifactId>extentreports-cucumber7-adapter</artifactId>
+            <version>${extentreports-cucumber-adapter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
         <!--        Allure Report -->
         <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber7-jvm -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-cucumber7-jvm</artifactId>
-            <version>${allure-cucumber7-jvm.version}</version>
+            <version>${allure-cucumber-jvm.version}</version>
         </dependency>
     </dependencies>
 
@@ -99,15 +112,43 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${maven-failsafe-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                        <configuration>
+                            <parallel>methods</parallel>
+                            <threadCount>2</threadCount>
+                            <perCoreThreadCount>true</perCoreThreadCount>
+                            <useUnlimitedThreads>true</useUnlimitedThreads>
+                            <testFailureIgnore>true</testFailureIgnore>
+                            <suiteXmlFiles>
+                                                        <suiteXmlFile>src/test/testng.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+                    <parallel>methods</parallel>
+                    <threadCount>2</threadCount>
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
                     <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/testng.xml</suiteXmlFile>
+                        <!--                        <suiteXmlFile>src/test/testng.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
@@ -134,28 +175,74 @@
                 <artifactId>allure-maven</artifactId>
                 <version>${allure-maven.version}</version>
                 <configuration>
-                    <reportVersion>${allure-cucumber7-jvm.version}</reportVersion>
+                    <reportVersion>${allure-cucumber-jvm.version}</reportVersion>
                     <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
                     <allureDownloadUrl>
-                        ${allure.cmd.download.url}/${allure-cucumber7-jvm.version}/allure-commandline-${allure-cucumber7-jvm.version}.zip
+                        ${allure.cmd.download.url}/${allure-cucumber-jvm.version}/allure-commandline-${allure-cucumber-jvm.version}.zip
                     </allureDownloadUrl>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>${maven-cucumber-reporting.version}</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>Project Name</projectName>
+                            <!-- optional, per documentation set this to "true" to bypass generation of Cucumber Reports entirely, defaults to false if not specified -->
+                            <skip>false</skip>
+                            <!-- output directory for the generated report -->
+                            <outputDirectory>test-output</outputDirectory>
+                            <!-- optional, defaults to outputDirectory if not specified -->
+                            <inputDirectory>${project.build.directory}</inputDirectory>
+                            <jsonFiles>
+                                <!-- supports wildcard or name pattern -->
+                                <param>**/cucumber.json</param>
+                            </jsonFiles>
+                            <!-- optional, defaults to outputDirectory if not specified -->
+                            <classificationDirectory>${project.build.directory}</classificationDirectory>
+                            <classificationFiles>
+                                <!-- supports wildcard or name pattern -->
+                                <param>sample.properties</param>
+                                <param>other.properties</param>
+                            </classificationFiles>
+                            <!-- <parallelTesting>false</parallelTesting>-->
+                            <!-- optional, set true to group features by its Ids -->
+                            <mergeFeaturesById>false</mergeFeaturesById>
+                            <!-- optional, set true to get a final report with latest results of the same test from different test runs -->
+                            <mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>
+                            <!-- optional, set true to fail build on test failures -->
+                            <checkBuildResult>false</checkBuildResult>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>tech.grasshopper</groupId>
+                <artifactId>extentreports-cucumberjson-plugin</artifactId>
+                <version>2.11.3</version>
+                <executions>
+                    <execution>
+                        <id>report</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>extentreport</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <cucumberJsonReportDirectory>${project.build.directory}/JsonReport</cucumberJsonReportDirectory>
+<!--                    <extentPropertiesDirectory>${project.build.testResources[0].directory}</extentPropertiesDirectory>-->
+                    <displayAllHooks>false</displayAllHooks>
+                    <strictCucumber6Behavior>true</strictCucumber6Behavior>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
-<!--    <reporting>-->
-<!--        <excludeDefaults>true</excludeDefaults>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>io.qameta.allure</groupId>-->
-<!--                <artifactId>allure-maven</artifactId>-->
-<!--                <version>${allure-maven.version}</version>-->
-<!--                <configuration>-->
-<!--                    <reportVersion>${allure-cucumber7-jvm.version}</reportVersion>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </reporting>-->
-
 </project>

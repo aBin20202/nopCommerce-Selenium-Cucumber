@@ -33,13 +33,13 @@ public class PropertyUtil {
         }
     }
 
+    public String getProperty(String key) {
+        return prop.getProperty(key);
+    }
+
     public PropertyUtil setFile(String propertyFilePath) {
         this.propertyFilePath = propertyFilePath;
         return this;
-    }
-
-    public String getProperty(String key) {
-        return prop.getProperty(key);
     }
 
 

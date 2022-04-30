@@ -1,9 +1,11 @@
 package stepDefinitions;
 
 import cucumber.BaseSteps;
+import factory.DriverFactory;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.assertj.core.api.Assertions;
+import pages.CustomerPage;
 
 /**
  * Created by vuongphan on 04/27/2022 - - 12:20
@@ -11,6 +13,7 @@ import org.assertj.core.api.Assertions;
  * @project nopCommerce-Selenium-Cucumber
  */
 public class CustomerSteps extends BaseSteps {
+    private CustomerPage customerPage = new CustomerPage(DriverFactory.getDriver());
     @And("click on Add new button")
     public void clickOnAddNewButton() {
         customerPage.clickOnAddNew();

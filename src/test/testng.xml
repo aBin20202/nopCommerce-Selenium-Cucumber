@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-
-<suite name="All Test Suite">
+<suite name="Test Suite">
     <listeners>
         <listener class-name="runners.TestNGListener"/>
     </listeners>
 
-    <test name="Test Run">
+    <test name=" Run Test">
         <classes>
             <class name="runners.TestRunner"/>
         </classes>
     </test>
 
+<!--    <test name="Parallel Test">-->
+<!--        <classes>-->
+<!--            <class name="runners.ParallelTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
